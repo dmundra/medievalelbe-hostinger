@@ -1,0 +1,161 @@
+<?php
+
+use Drupal\entityqueue\Entity\EntityQueue;
+use Drupal\Core\Database\Database;
+use Drupal\node\NodeInterface;
+
+/**
+ * @file
+ * The Medieval Elbe bucket to text custom module.
+ */
+
+/**
+ * Implement hook_page_attachments
+ */
+function uo_bucket_text_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'uo_bucket_text/uo-bucket-text-css';
+  $page['#attached']['library'][] = 'uo_bucket_text/uo-bucket-text-tooltip-js';
+}
+
+/**
+ * Implements hook_node_insert().
+ * Handles the rules integration for the bucket content type
+ * nodes to specific entity queues when nodes are created.
+ */
+function uo_bucket_text_node_insert(NodeInterface $node) {
+  \Drupal::logger('uo_bucket_text')->notice('New node creation triggered for: ' . $node->getTitle());
+
+  if ($node->bundle() === 'bucket') {
+      \Drupal::logger('uo_bucket_text')->notice('This was invoked for content type bucket.');
+
+      $field_bucket_type = $node->hasField('field_bucket_type') ? $node->get('field_bucket_type') : null;
+
+      if ($field_bucket_type && !$field_bucket_type->isEmpty()) {
+          $field_value = $field_bucket_type->getValue();
+
+          // Simplify logic by mapping field values directly to queue machine names
+          $queue_map = [
+              'DW' => 'deeds_of_wiprecht',
+              'L' => 'lampert',
+              'R' => 'raids',
+              'VL' => 'vratislav_letters',
+              'W' => 'wichmann',
+          ];
+
+          $queue_machine_name = $queue_map[$field_value[0]['value']] ?? null;
+
+          if ($queue_machine_name) {
+              execute_add_bucket_to_queue($queue_machine_name, $node);
+          }
+      }
+  }
+}
+
+/**
+* Add a node to an entity queue.
+*/
+function execute_add_bucket_to_queue($queue_machine_name, NodeInterface $node) {
+  //$queue = EntitySubqueue::load($queue_machine_name);
+  $queue = \Drupal::entityTypeManager()->getStorage('entity_subqueue')->load($queue_machine_name);
+  if ($queue) {
+      // Get the current items in the queue.
+      $items = $queue->get('items')->getValue();
+
+      // Prepare the new item to add.
+      $new_item = [
+          'target_id' => $node->id(),
+      ];
+
+      // Add the new item to the items array.
+      $items[] = $new_item;
+
+      // Update the items field with the new list of items.
+      $queue->set('items', $items);
+
+      // Save the updated queue.
+      $queue->save();
+
+      \Drupal::logger('uo_bucket_text')->notice("Node {$node->id()} added to the {$queue_machine_name} entity queue.");
+      \Drupal::messenger()->addMessage("Node {$node->id()} added to the {$queue_machine_name} entity queue.");
+  } else {
+      \Drupal::logger('uo_bucket_text')->error("The entity queue {$queue_machine_name} could not be loaded.");
+  }
+}
+
+/**
+ * Implements hook_views_post_render().
+ */
+function uo_bucket_text_views_post_render(\Drupal\views\ViewExecutable $view, &$output, \Drupal\views\Plugin\views\cache\CachePluginBase $cache)
+{
+  $display = $view->getDisplay();
+  $view_name = $display->view->element['#name'] ?? '';
+  $id = $display->display['id'];
+  $args = $view->args;
+  if ($view_name && $view_name == "list_of_labels" && $id == "block" && $args[0] == "raids") {
+    $view->setTitle("Index");
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ *  Add footnote autocomplete field.
+ */
+function uo_bucket_text_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == "node_bucket_form" || $form_id == "node_bucket_edit_form") {
+    $form['#attached']['library'][] = 'uo_bucket_text/uo-bucket-text-bucket-form-js';
+    $weight = $form['field_bucket_text']['#weight'];
+    $form['group_bucket_text']['uo_bucket_text_footnotes'] = [
+      '#type' => 'textfield',
+      '#title' => t('Footnotes/Tab'),
+      '#autocomplete_route_name' => 'uo_bucket_text.footnotes',
+      '#description' => t("Before adding footnote, click in the 'Text' box where you would like the footnote to appear, search footnote/tab by title and select it then click on 'Add footnote/tab'."),
+      '#weight' => $weight + 0.1,
+    ];
+    $markup = t('<div id="uo_bucket_text_footnote"><a class="button" id="uo_bucket_text_add_footnote" href="#">Add footnote/tab</a></div>');
+    $form['group_bucket_text']['uo_bucket_text_add_footnote'] = [
+      '#markup' => $markup,
+      '#weight' => $weight + 0.2,
+    ];
+  }
+  
+  if ($form_id == "node_page_form" || $form_id == "node_page_edit_form") {
+    $form['#attached']['library'][] = 'uo_bucket_text/uo-bucket-text-page-form-js';
+    $weight = $form['body']['#weight'];
+    $form['uo_bucket_text_footnotes'] = [
+      '#type' => 'textfield',
+      '#title' => t('Footnotes/Tab'),
+      '#autocomplete_route_name' => 'uo_bucket_text.footnotes',
+      '#description' => t("Before adding footnote, click in the 'Body' box where you would like the footnote to appear, search footnote/tab by title and select it then click on 'Add footnote/tab'."),
+      '#weight' => $weight + 0.1,
+    ];
+    $markup = t('<div id="uo_bucket_text_footnote"><a class="button" id="uo_bucket_text_add_footnote" href="#">Add footnote/tab</a></div>');
+    $form['uo_bucket_text_add_footnote'] = [
+      '#markup' => $markup,
+      '#weight' => $weight + 0.2,
+    ];
+  }
+}
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function uo_bucket_text_views_query_alter(\Drupal\views\ViewExecutable $view, \Drupal\views\Plugin\views\query\QueryPluginBase $query) {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $display = $view->getDisplay();
+  $id = $display->display['id'];
+  if ($view->id() == 'footnote_in_buckets' && $id == 'footnote_in_buckets_block' && str_contains($current_path, 'node/')) {
+    $footnote_nid = basename($current_path) ?? 0;
+    $footnote_shortcode = t('<fn value="@nid">', [
+      '@nid' => $footnote_nid,
+    ])->render();
+    $footnote_shortcode_page = t('[fn value=@nid]', [
+      '@nid' => $footnote_nid,
+    ])->render();
+
+    $query->addTable('node__field_bucket_text');
+    $query->addWhere(2, 'node__field_bucket_text.field_bucket_text_value', '%' . $footnote_shortcode . '%', 'LIKE');
+
+    $query->addTable('node__body');
+    $query->addWhere(2, 'node__body.body_value', '%' . $footnote_shortcode_page . '%', 'LIKE');
+  }
+}

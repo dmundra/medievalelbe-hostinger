@@ -1,0 +1,3 @@
+services:
+  uo_bucket_text.helper:
+    class: Drupal\uo_bucket_text\Utility\UoBucketTextHelper

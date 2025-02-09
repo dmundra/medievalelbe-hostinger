@@ -1,0 +1,23 @@
+uo-bucket-text-css:
+  version: 1.x
+  css:
+    theme:
+      uo_bucket_text.css: {}
+
+uo-bucket-text-page-form-js:
+  js:
+    uo_bucket_text_footnote_page.js: {}
+
+uo-bucket-text-bucket-form-js:
+  js:
+    uo_bucket_text_footnote.js: {}
+
+uo-bucket-text-highlight-js:
+  js:
+    uo_bucket_text_highlight.js: {}
+
+uo-bucket-text-tooltip-js:
+  js:
+    uo_bucket_text_tooltip.js: {}
+  dependencies:
+    - jquery_ui_tooltip/tooltip

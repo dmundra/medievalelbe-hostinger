@@ -1,0 +1,106 @@
+/* Global changes */
+table.diff td div {
+  white-space: pre-wrap;
+}
+/* Bucket text styling */
+#bucket-text {
+  line-height: 2.0;
+  flex: 1;
+  padding: 0 1em;
+}
+#bucket-text > span {
+  white-space: pre-wrap;
+}
+#bucket-text .tooltip {
+  cursor: pointer;
+}
+.bucket-text-sidebar {
+  margin: 0 0 1.2em;
+}
+#uo_bucket_text_footnote {
+  margin-bottom: 10px;
+}
+/* Make the footnote a supertext^1 */
+.see-footnote {
+  vertical-align: top;
+  position: relative;
+  top: -0.25em;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+a.see-footnote {
+  text-decoration: none;
+  font-weight: bold;
+}
+a.see-footnote:hover {
+  color: #3399cc;
+  text-decoration: underline;
+}
+
+/* Tooltip styling */
+body .ui-tooltip {
+  background: rgb(255, 255, 204);
+  border: 2px solid black;
+  max-width: 600px;
+}
+body .ui-tooltip {
+  padding: 10px 20px;
+  color: black;
+  border-radius: 20px;
+  font: bold 14px;
+  box-shadow: 0 0 7px black;
+}
+/*##beautytips position fix for firefox##*/
+body.gecko div#content { 
+  position:static;
+}
+
+/* Tree menu styling */
+.block-uo-bucket-text {
+  width: 16em;
+  height: 50%;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  padding: 1em;
+}
+.block-uo-bucket-text .menu-item {
+  list-style-image: url(images/menu-leaf.png) !important;
+}
+.block-uo-bucket-text .menu-item--collapsed {
+  list-style-image: url(images/menu-collapsed.png) !important;
+}
+.block-uo-bucket-text .menu-item--expanded.menu-item--active-trail {
+  list-style-image: url(images/menu-expanded.png) !important;
+}
+.block-uo-bucket-text a {
+  text-decoration: none;
+  font-weight: bold;
+}
+.block-uo-bucket-text a:link {
+	color: #367ea1;
+}
+.block-uo-bucket-text a.active {
+	color: black;
+}
+.block-uo-bucket-text a:hover {
+	color: #367ea1;
+  text-decoration: underline;
+}
+.block-uo-bucket-text a:visited {
+	color: #264c72;
+}
+
+/* Controller ("text/{name}", "text/{name}/{label}") 
+ * page styling./
+ */
+#bucket-main-content {
+  display: flex;
+  height: 100%;
+}
+#sidebar-text {
+  width: 16em;
+  background-color: #dddddd;
+  line-height: 1.5;
+  padding: 1em;
+}

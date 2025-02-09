@@ -1,0 +1,33 @@
+uo_bucket_text.text:
+  path: '/text/{name}'
+  defaults:
+    _controller: '\Drupal\uo_bucket_text\Controller\UoBucketTextController::text'
+    _title_callback: '\Drupal\uo_bucket_text\Controller\UoBucketTextController::getTitle'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      name:
+        type: string
+
+uo_bucket_text.label.text:
+  path: '/text/{name}/{label}'
+  defaults:
+    _controller: '\Drupal\uo_bucket_text\Controller\UoBucketTextController::label'
+    _title_callback: '\Drupal\uo_bucket_text\Controller\UoBucketTextController::getTitle'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      name:
+        type: string
+      label:
+        type: integer
+
+uo_bucket_text.footnotes:
+  path: '/get-footnotes'
+  defaults:
+    _controller: '\Drupal\uo_bucket_text\Controller\UoBucketTextController::footnotes'
+    _format: json
+  requirements:
+    _permission: 'access content'

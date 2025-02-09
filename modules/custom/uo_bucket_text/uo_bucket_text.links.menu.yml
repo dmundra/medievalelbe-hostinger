@@ -1,0 +1,14 @@
+uo_bucket_text.text:
+  title: 'Text'
+  description: 'Display text from bucket content type.'
+  route_name: uo_bucket_text.text
+
+uo_bucket_text.label.text:
+  title: 'Text by Label'
+  description: 'Display text from bucket content type that is tagged with provided label.'
+  route_name: uo_bucket_text.label.text
+
+uo_bucket_text.footnotes:
+  title: 'Get Footnotes'
+  description: 'Return JSON array of footnotes.'
+  route_name: uo_bucket_text.footnotes

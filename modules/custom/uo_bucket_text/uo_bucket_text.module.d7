@@ -1,0 +1,76 @@
+<?php
+
+/**
+ * Get sidebar status.
+ */
+function _uo_bucket_text_get_sidebar_status() {
+  return isset($_COOKIE['Drupal_visitor_uo_bucket_text_sidebar_second_status']) and $_COOKIE['Drupal_visitor_uo_bucket_text_sidebar_second_status'];
+}
+
+/**
+ * Implements hook_page_alter().
+ */
+function uo_bucket_text_page_alter(&$page) {
+  if (_uo_bucket_text_get_sidebar_status()) {
+    unset($page[variable_get('uo_bucket_text_sidebar', UO_BUCKET_TEXT_SIDEBAR)]);
+  }
+}
+
+/**
+ * Second sidebar show/hide option form.
+ */
+function _uo_bucket_text_sidebar_second_form($form, &$form_state) {
+  $form = array();
+
+  $status = _uo_bucket_text_get_sidebar_status() ? 'Show' : 'Hide';
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('!status sidebar text', array(
+      '!status' => $status,
+    )),
+  );
+
+  return $form;
+}
+
+/**
+ * Second sidebar show/hide option form submit.
+ */
+function _uo_bucket_text_sidebar_second_form_submit(&$form, &$form_state) {
+  if (isset($_COOKIE['Drupal_visitor_uo_bucket_text_sidebar_second_status'])) {
+    user_cookie_save(array('uo_bucket_text_sidebar_second_status' => !$_COOKIE['Drupal_visitor_uo_bucket_text_sidebar_second_status']));
+  }
+  else {
+    user_cookie_save(array('uo_bucket_text_sidebar_second_status' => TRUE));
+  }
+  drupal_goto(current_path());
+}
+
+
+/**
+ * Implements hook_block_info().
+ */
+function uo_bucket_text_block_info() {
+  $blocks['dynamic_labels_sidebar'] = array(
+    'info' => t('Dynamic Labels Sidebar'),
+    'status' => 0,
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => "text/*\ntext/*/*",
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function uo_bucket_text_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'dynamic_labels_sidebar':
+      $block['content'] = '<div class="highlight-labels-sidebar">&nbsp;</div>';
+      break;
+  }
+  return $block;
+}
