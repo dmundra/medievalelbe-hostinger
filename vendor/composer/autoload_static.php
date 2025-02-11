@@ -13,37 +13,30 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
         '662a729f963d39afe703c9d9b7ab4a8c' => __DIR__ . '/..' . '/symfony/polyfill-php83/bootstrap.php',
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
-        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
+        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '89efb1254ef2d1c5d80096acd12c4098' => __DIR__ . '/..' . '/twig/twig/src/Resources/core.php',
         'ffecb95d45175fd40f75be8a23b34f90' => __DIR__ . '/..' . '/twig/twig/src/Resources/debug.php',
         'c7baa00073ee9c61edf148c51917cfb4' => __DIR__ . '/..' . '/twig/twig/src/Resources/escaper.php',
         'f844ccf1d25df8663951193c3fc307c8' => __DIR__ . '/..' . '/twig/twig/src/Resources/string_loader.php',
-        '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
-        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '2f69d3914119f042cca9e44442d5ce95' => __DIR__ . '/../..' . '/core/includes/bootstrap.inc',
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
-        '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
         'fbeead2280a8f3911a1fe6dd034f7d5e' => __DIR__ . '/..' . '/mkalkbrenner/php-htmldiff-advanced/src/HtmlDiffAdvancedInterface.php',
         '96f8d8288528d52059397cad6ec61f17' => __DIR__ . '/..' . '/mkalkbrenner/php-htmldiff-advanced/src/HtmlDiffAdvanced.php',
-        '334983c1b64a31de3c73827b7a6a1e88' => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/src/_autoload_modules.php',
     );
 
     public static $prefixLengthsPsr4 = array (
-        'W' => 
-        array (
-            'Webmozart\\Assert\\' => 17,
-        ),
         'V' => 
         array (
             'VariableAnalysis\\' => 17,
         ),
         'T' => 
         array (
-            'Twig\\Extra\\Intl\\' => 16,
             'Twig\\' => 5,
         ),
         'S' => 
@@ -53,14 +46,12 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Intl\\Normalizer\\' => 33,
             'Symfony\\Polyfill\\Intl\\Idn\\' => 26,
-            'Symfony\\Polyfill\\Intl\\Icu\\' => 26,
             'Symfony\\Polyfill\\Intl\\Grapheme\\' => 31,
             'Symfony\\Polyfill\\Iconv\\' => 23,
             'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Contracts\\Translation\\' => 30,
             'Symfony\\Contracts\\Service\\' => 26,
             'Symfony\\Contracts\\EventDispatcher\\' => 34,
-            'Symfony\\Contracts\\Cache\\' => 24,
             'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\VarExporter\\' => 30,
             'Symfony\\Component\\VarDumper\\' => 28,
@@ -69,10 +60,8 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
             'Symfony\\Component\\Serializer\\' => 29,
             'Symfony\\Component\\Routing\\' => 26,
             'Symfony\\Component\\Process\\' => 26,
-            'Symfony\\Component\\PasswordHasher\\' => 33,
             'Symfony\\Component\\Mime\\' => 23,
             'Symfony\\Component\\Mailer\\' => 25,
-            'Symfony\\Component\\Intl\\' => 23,
             'Symfony\\Component\\HttpKernel\\' => 29,
             'Symfony\\Component\\HttpFoundation\\' => 33,
             'Symfony\\Component\\Finder\\' => 25,
@@ -81,29 +70,8 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
             'Symfony\\Component\\ErrorHandler\\' => 31,
             'Symfony\\Component\\DependencyInjection\\' => 38,
             'Symfony\\Component\\Console\\' => 26,
-            'Symfony\\Component\\Config\\' => 25,
-            'Symfony\\Component\\Cache\\' => 24,
-            'Symfony\\Bundle\\FrameworkBundle\\' => 31,
-            'Symfony\\Bridge\\Twig\\' => 20,
             'Symfony\\Bridge\\PsrHttpMessage\\' => 30,
             'SlevomatCodingStandard\\' => 23,
-            'SimpleSAML\\XML\\' => 15,
-            'SimpleSAML\\XMLSecurity\\' => 23,
-            'SimpleSAML\\Module\\saml\\' => 23,
-            'SimpleSAML\\Module\\multiauth\\' => 28,
-            'SimpleSAML\\Module\\exampleauth\\' => 30,
-            'SimpleSAML\\Module\\cron\\' => 23,
-            'SimpleSAML\\Module\\core\\' => 23,
-            'SimpleSAML\\Module\\admin\\' => 24,
-            'SimpleSAML\\Composer\\XMLProvider\\' => 32,
-            'SimpleSAML\\Composer\\' => 20,
-            'SimpleSAML\\Assert\\' => 18,
-            'SimpleSAML\\' => 11,
-            'SAML2\\' => 6,
-        ),
-        'R' => 
-        array (
-            'RobRichards\\XMLSecLibs\\' => 23,
         ),
         'P' => 
         array (
@@ -115,7 +83,6 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
             'Psr\\Cache\\' => 10,
             'Peast\\' => 6,
             'PHPStan\\PhpDocParser\\' => 21,
-            'PHPMailer\\PHPMailer\\' => 20,
             'PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 57,
         ),
         'M' => 
@@ -127,8 +94,6 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
-            'Gettext\\Languages\\' => 18,
-            'Gettext\\' => 8,
         ),
         'E' => 
         array (
@@ -159,17 +124,9 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
     );
 
     public static $prefixDirsPsr4 = array (
-        'Webmozart\\Assert\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/webmozart/assert/src',
-        ),
         'VariableAnalysis\\' => 
         array (
             0 => __DIR__ . '/..' . '/sirbrillig/phpcs-variable-analysis/VariableAnalysis',
-        ),
-        'Twig\\Extra\\Intl\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/twig/intl-extra',
         ),
         'Twig\\' => 
         array (
@@ -195,10 +152,6 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-intl-idn',
         ),
-        'Symfony\\Polyfill\\Intl\\Icu\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-intl-icu',
-        ),
         'Symfony\\Polyfill\\Intl\\Grapheme\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme',
@@ -222,10 +175,6 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
         'Symfony\\Contracts\\EventDispatcher\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/event-dispatcher-contracts',
-        ),
-        'Symfony\\Contracts\\Cache\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/cache-contracts',
         ),
         'Symfony\\Component\\Yaml\\' => 
         array (
@@ -259,10 +208,6 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
         array (
             0 => __DIR__ . '/..' . '/symfony/process',
         ),
-        'Symfony\\Component\\PasswordHasher\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/password-hasher',
-        ),
         'Symfony\\Component\\Mime\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/mime',
@@ -270,10 +215,6 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
         'Symfony\\Component\\Mailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/mailer',
-        ),
-        'Symfony\\Component\\Intl\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/intl',
         ),
         'Symfony\\Component\\HttpKernel\\' => 
         array (
@@ -307,22 +248,6 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
-        'Symfony\\Component\\Config\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/config',
-        ),
-        'Symfony\\Component\\Cache\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/cache',
-        ),
-        'Symfony\\Bundle\\FrameworkBundle\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/framework-bundle',
-        ),
-        'Symfony\\Bridge\\Twig\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/twig-bridge',
-        ),
         'Symfony\\Bridge\\PsrHttpMessage\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/psr-http-message-bridge',
@@ -330,62 +255,6 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
         'SlevomatCodingStandard\\' => 
         array (
             0 => __DIR__ . '/..' . '/slevomat/coding-standard/SlevomatCodingStandard',
-        ),
-        'SimpleSAML\\XML\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/simplesamlphp/xml-common/src',
-        ),
-        'SimpleSAML\\XMLSecurity\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/simplesamlphp/xml-security/src',
-        ),
-        'SimpleSAML\\Module\\saml\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/modules/saml/src',
-        ),
-        'SimpleSAML\\Module\\multiauth\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/modules/multiauth/src',
-        ),
-        'SimpleSAML\\Module\\exampleauth\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/modules/exampleauth/src',
-        ),
-        'SimpleSAML\\Module\\cron\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/modules/cron/src',
-        ),
-        'SimpleSAML\\Module\\core\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/modules/core/src',
-        ),
-        'SimpleSAML\\Module\\admin\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/modules/admin/src',
-        ),
-        'SimpleSAML\\Composer\\XMLProvider\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/simplesamlphp/composer-xmlprovider-installer/src',
-        ),
-        'SimpleSAML\\Composer\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/simplesamlphp/composer-module-installer/src',
-        ),
-        'SimpleSAML\\Assert\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/simplesamlphp/assert/src',
-        ),
-        'SimpleSAML\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/src/SimpleSAML',
-        ),
-        'SAML2\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/simplesamlphp/saml2/src/SAML2',
-        ),
-        'RobRichards\\XMLSecLibs\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/robrichards/xmlseclibs/src',
         ),
         'Psr\\Log\\' => 
         array (
@@ -420,10 +289,6 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
         array (
             0 => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src',
         ),
-        'PHPMailer\\PHPMailer\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
-        ),
         'PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 
         array (
             0 => __DIR__ . '/..' . '/dealerdirect/phpcodesniffer-composer-installer/src',
@@ -443,15 +308,6 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
-        ),
-        'Gettext\\Languages\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/gettext/languages/src',
-        ),
-        'Gettext\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/gettext/gettext/src',
-            1 => __DIR__ . '/..' . '/gettext/translator/src',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
@@ -541,7 +397,6 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
 
     public static $classMap = array (
         'CURLStringFile' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/CURLStringFile.php',
-        'Collator' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/Collator.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'DateError' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateError.php',
         'DateException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateException.php',
@@ -574,10 +429,7 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
         'Drupal\\Core\\DrupalKernelInterface' => __DIR__ . '/../..' . '/core/lib/Drupal/Core/DrupalKernelInterface.php',
         'Drupal\\Core\\Installer\\InstallerRedirectTrait' => __DIR__ . '/../..' . '/core/lib/Drupal/Core/Installer/InstallerRedirectTrait.php',
         'Drupal\\Core\\Site\\Settings' => __DIR__ . '/../..' . '/core/lib/Drupal/Core/Site/Settings.php',
-        'IntlDateFormatter' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/IntlDateFormatter.php',
-        'Locale' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/Locale.php',
         'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
-        'NumberFormatter' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/NumberFormatter.php',
         'OS_Guess' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/OS/Guess.php',
         'Override' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/Override.php',
         'PEAR' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/PEAR.php',
@@ -603,7 +455,6 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
         'SebastianBergmann\\Diff\\Parser' => __DIR__ . '/..' . '/sebastian/diff/src/Parser.php',
         'SebastianBergmann\\Diff\\TimeEfficientLongestCommonSubsequenceCalculator' => __DIR__ . '/..' . '/sebastian/diff/src/TimeEfficientLongestCommonSubsequenceCalculator.php',
         'System' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/System.php',
-        '©' => __DIR__ . '/..' . '/symfony/cache/Traits/ValueWrapper.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

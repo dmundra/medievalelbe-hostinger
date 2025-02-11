@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'CURLStringFile' => $vendorDir . '/symfony/polyfill-php81/Resources/stubs/CURLStringFile.php',
-    'Collator' => $vendorDir . '/symfony/polyfill-intl-icu/Resources/stubs/Collator.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'DateError' => $vendorDir . '/symfony/polyfill-php83/Resources/stubs/DateError.php',
     'DateException' => $vendorDir . '/symfony/polyfill-php83/Resources/stubs/DateException.php',
@@ -40,10 +39,7 @@ return array(
     'Drupal\\Core\\DrupalKernelInterface' => $baseDir . '/core/lib/Drupal/Core/DrupalKernelInterface.php',
     'Drupal\\Core\\Installer\\InstallerRedirectTrait' => $baseDir . '/core/lib/Drupal/Core/Installer/InstallerRedirectTrait.php',
     'Drupal\\Core\\Site\\Settings' => $baseDir . '/core/lib/Drupal/Core/Site/Settings.php',
-    'IntlDateFormatter' => $vendorDir . '/symfony/polyfill-intl-icu/Resources/stubs/IntlDateFormatter.php',
-    'Locale' => $vendorDir . '/symfony/polyfill-intl-icu/Resources/stubs/Locale.php',
     'Normalizer' => $vendorDir . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
-    'NumberFormatter' => $vendorDir . '/symfony/polyfill-intl-icu/Resources/stubs/NumberFormatter.php',
     'OS_Guess' => $vendorDir . '/pear/pear-core-minimal/src/OS/Guess.php',
     'Override' => $vendorDir . '/symfony/polyfill-php83/Resources/stubs/Override.php',
     'PEAR' => $vendorDir . '/pear/pear-core-minimal/src/PEAR.php',
@@ -69,5 +65,4 @@ return array(
     'SebastianBergmann\\Diff\\Parser' => $vendorDir . '/sebastian/diff/src/Parser.php',
     'SebastianBergmann\\Diff\\TimeEfficientLongestCommonSubsequenceCalculator' => $vendorDir . '/sebastian/diff/src/TimeEfficientLongestCommonSubsequenceCalculator.php',
     'System' => $vendorDir . '/pear/pear-core-minimal/src/System.php',
-    '©' => $vendorDir . '/symfony/cache/Traits/ValueWrapper.php',
 );
