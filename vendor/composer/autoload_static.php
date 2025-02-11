@@ -33,10 +33,6 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
     );
 
     public static $prefixLengthsPsr4 = array (
-        'c' => 
-        array (
-            'cweagans\\Composer\\' => 18,
-        ),
         'W' => 
         array (
             'Webmozart\\Assert\\' => 17,
@@ -163,10 +159,6 @@ class ComposerStaticInit540d8826beb9b1d6435207b00c8afd89
     );
 
     public static $prefixDirsPsr4 = array (
-        'cweagans\\Composer\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/cweagans/composer-patches/src',
-        ),
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
