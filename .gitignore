@@ -9,13 +9,13 @@
 
 # Ignore core when managing all of a project's dependencies with Composer
 # including Drupal core.
-#core
+core
 
 # Ignore dependencies that are managed with Composer.
 # Generally you should only ignore the root vendor directory. It's important
 # that core/assets/vendor and any other vendor directories within contrib or
 # custom module, theme, etc., are not ignored unless you purposely do so.
-#/vendor/
+/vendor/
 
 # Ignore configuration files that may contain sensitive information.
 sites/*/settings*.php
@@ -42,4 +42,4 @@ sites/simpletest
 # simpletest
 
 # Ignore contrib modules
-#modules/contrib
+modules/contrib
