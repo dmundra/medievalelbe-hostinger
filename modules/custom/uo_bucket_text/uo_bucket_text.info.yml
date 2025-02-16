@@ -3,7 +3,7 @@ type: module
 description: For the Medieval Elbe project. Display text from bucket content type as continuous text.
 version: 1.0
 package: Development
-core_version_requirement: ^9.4 || ^10
+core_version_requirement: ^9.4 || ^10 || ^11
 
 dependencies:
   - 'drupal:color_field'
