@@ -5,7 +5,6 @@ namespace Drupal\uo_bucket_text\Utility;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\node\Entity\Node;
 
-
 /**
  * Class UoBucketTextHelper.
  *
@@ -14,6 +13,11 @@ use Drupal\node\Entity\Node;
 class UoBucketTextHelper {
   use StringTranslationTrait;
 
+  /**
+   * Footnote count.
+   *
+   * @var int
+   */
   protected $matchcount = 0;
 
   /**
@@ -21,16 +25,14 @@ class UoBucketTextHelper {
    *
    * @param string $text
    *   Text that contains footnote shortcode.
-   *
-   * @return TranslatableMarkup object
-   *   HTML output.
    */
-  function uo_bucket_text_replace_footnote($text) {
+  public function replaceFootnote($text) {
     $text = preg_replace('|\[fn([^\]]*)\]|', '<fn$1>', $text);
     $text = preg_replace('|\[/fn\]|', '</fn>', $text);
     $pattern = '|<fn([^>]*)>|';
-    $text = preg_replace_callback($pattern, [$this, 'uo_bucket_text_replace_footnote_callback'], $text);
-    return $text;
+    return preg_replace_callback($pattern, [$this,
+      'replaceFootnoteCallback'
+    ], $text);
   }
 
   /**
@@ -39,7 +41,7 @@ class UoBucketTextHelper {
    * Uses static vars to temporarily store footnotes found.
    * This is not threadsafe, but PHP isn't.
    */
-  function uo_bucket_text_replace_footnote_callback($matches, $op = '') {
+  public function replaceFootnoteCallback($matches, $op = '') {
     $footnote = "";
     if ($matches[1]) {
       $nid = '';
@@ -57,4 +59,5 @@ class UoBucketTextHelper {
     }
     return $footnote;
   }
+
 }

@@ -24,7 +24,7 @@ class UoBucketTextController extends ControllerBase {
 
   /**
    * The utility helper.
-   * 
+   *
    * @var Drupal\uo_bucket_text\Utility\UoBucketTextHelper
    */
   protected $helper;
@@ -41,7 +41,7 @@ class UoBucketTextController extends ControllerBase {
    */
   public function __construct(
     UoBucketTextHelper $helper,
-    EntityTypeManagerInterface $entityTypeManager
+    EntityTypeManagerInterface $entityTypeManager,
   ) {
     $this->helper = $helper;
     $this->entityTypeManager = $entityTypeManager;
@@ -68,7 +68,9 @@ class UoBucketTextController extends ControllerBase {
    */
   public function getTitle($name = '', $label = FALSE): string {
     $default = "Text";
-    if (empty($name)) return $default;
+    if (empty($name)) {
+      return $default;
+    }
     $queue = EntitySubqueue::load($name);
     if (!empty($queue)) {
       $default = $queue->getTitle();
@@ -117,7 +119,7 @@ class UoBucketTextController extends ControllerBase {
 
     $input = Xss::filter($input);
 
-    $results = $this->uo_bucket_text_get_footnotes($input);
+    $results = $this->getFootnotes($input);
     // Add tab into the list.
     $results[] = [
       'value' => 'tab',
@@ -137,7 +139,9 @@ class UoBucketTextController extends ControllerBase {
       '#markup' => $this->t('<em>Not found</em>'),
     ];
 
-    if (empty($name)) return $output;
+    if (empty($name)) {
+      return $output;
+    }
 
     // Attached the js library.
     $output['#attached']['library'][] = 'uo_bucket_text/uo-bucket-text-highlight-js';
@@ -159,7 +163,9 @@ class UoBucketTextController extends ControllerBase {
     $queue = EntitySubqueue::load($name);
     if (!empty($queue)) {
       $title = $queue->getTitle();
-      if ($name == 'raids') $title = 'Incursions';
+      if ($name == 'raids') {
+        $title = 'Incursions';
+      }
       // Set up page title.
       $output['#title'] = $this->t($title);
       // Set up text main area.
@@ -199,7 +205,7 @@ class UoBucketTextController extends ControllerBase {
       $tabindex = 0;
       foreach ($buckets as $nid => $bucket) {
         if ($label) {
-          if (!$this->uo_bucket_text_node_has_label($bucket, $label)) {
+          if (!$this->nodeHasLabel($bucket, $label)) {
             continue;
           }
         }
@@ -230,7 +236,8 @@ class UoBucketTextController extends ControllerBase {
         if ($bucket->field_bucket_highlight_label->target_id) {
           $highlight_label = Term::load($bucket->field_bucket_highlight_label->target_id);
           $color = (strtoupper($highlight_label->field_bucket_color->color) == "#FFFFFF") ? $default_color : $highlight_label->field_bucket_color->color;
-        } else {
+        }
+        else {
           $color = (strtoupper($bucket->field_bucket_color->color) == "#FFFFFF") ? $default_color : $bucket->field_bucket_color->color;
         }
         if ($newparagraph) {
@@ -242,12 +249,13 @@ class UoBucketTextController extends ControllerBase {
               'tabindex' => $tabindex,
               'class' => 'highlight-text',
               'data-color' => $color,
-              'data-labels' => $this->uo_bucket_text_get_labels($bucket),
-              'data-title' => $this->uo_bucket_text_tooltip_display($bucket, $name),
+              'data-labels' => $this->getLabels($bucket),
+              'data-title' => $this->tooltipDisplay($bucket, $name),
             ],
-            '#value' => $this->helper->uo_bucket_text_replace_footnote('	' . $text),
+            '#value' => $this->helper->replaceFootnote('	' . $text),
           ];
-        } else {
+        }
+        else {
           $output['bucket-main-content']['text'][] = [
             '#type' => 'html_tag',
             '#tag' => 'span',
@@ -255,10 +263,10 @@ class UoBucketTextController extends ControllerBase {
               'tabindex' => $tabindex,
               'class' => 'highlight-text',
               'data-color' => $color,
-              'data-labels' => $this->uo_bucket_text_get_labels($bucket),
-              'data-title' => $this->uo_bucket_text_tooltip_display($bucket, $name),
+              'data-labels' => $this->getLabels($bucket),
+              'data-title' => $this->tooltipDisplay($bucket, $name),
             ],
-            '#value' => $this->helper->uo_bucket_text_replace_footnote($text),
+            '#value' => $this->helper->replaceFootnote($text),
           ];
         }
       }
@@ -270,7 +278,7 @@ class UoBucketTextController extends ControllerBase {
   /**
    * Check if node has label (tag).
    */
-  function uo_bucket_text_node_has_label($node, $tid) {
+  public function nodeHasLabel($node, $tid) {
     if ($node->getType() == 'bucket') {
       foreach ($node->field_bucket_labels as $delta => $term) {
         if ($term->target_id == $tid) {
@@ -290,7 +298,7 @@ class UoBucketTextController extends ControllerBase {
    * @return string
    *   HTML output.
    */
-  function uo_bucket_text_get_labels($node) {
+  public function getLabels($node) {
     $output = $this->t('');
     if ($node->getType() == 'bucket') {
       $labels = [];
@@ -309,18 +317,20 @@ class UoBucketTextController extends ControllerBase {
    *
    * @param object $node
    *   A node object.
-   *
-   * @return TranslatableMarkup object
-   *   HTML output.
+   * @param object $page
+   *   A page name.
    */
-  function uo_bucket_text_tooltip_display($node, $page) {
+  public function tooltipDisplay($node, $page) {
     $output = $this->t('');
     if ($node->getType() == 'bucket') {
       $labels = [];
       foreach ($node->field_bucket_labels as $delta => $term) {
         $label = Term::load($term->target_id);
         if ($label) {
-          $labels[] = Link::fromTextAndUrl($this->t($label->get('name')->value), Url::fromRoute('uo_bucket_text.label.text', ['name' => $page, 'label' => $term->target_id]))->toString();
+          $labels[] = Link::fromTextAndUrl($this->t($label->get('name')->value), Url::fromRoute('uo_bucket_text.label.text', [
+            'name' => $page,
+            'label' => $term->target_id,
+          ]))->toString();
         }
       }
       $output = $this->t('@labels', [
@@ -339,7 +349,7 @@ class UoBucketTextController extends ControllerBase {
    * @return array
    *   List of footnotes.
    */
-  function uo_bucket_text_get_footnotes($string) {
+  public function getFootnotes($string) {
     $footnote_query = $this->entityTypeManager->getStorage('node')->getQuery()
       ->accessCheck(FALSE)
       ->condition('type', 'footnote')
@@ -348,7 +358,7 @@ class UoBucketTextController extends ControllerBase {
       ->sort('created', 'DESC');
     $ids = $footnote_query->execute();
     $footnotes = $ids ? $this->entityTypeManager->getStorage('node')->loadMultiple($ids) : [];
-    
+
     $results = [];
     foreach ($footnotes as $footnote) {
       $label = [
@@ -360,7 +370,7 @@ class UoBucketTextController extends ControllerBase {
         'label' => implode(' ', $label),
       ];
     }
-  
+
     return $results;
   }
 
