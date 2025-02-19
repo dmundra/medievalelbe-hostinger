@@ -22,11 +22,11 @@ use Drupal\Core\Field\FieldDefinitionInterface;
  *   }
  * )
  */
-class UoBucketTextDisplayFormatter extends FormatterBase implements ContainerFactoryPluginInterface{
+class UoBucketTextDisplayFormatter extends FormatterBase implements ContainerFactoryPluginInterface {
 
   /**
    * The utility helper.
-   * 
+   *
    * @var Drupal\uo_bucket_text\Utility\UoBucketTextHelper
    */
   protected $helper;
@@ -48,7 +48,7 @@ class UoBucketTextDisplayFormatter extends FormatterBase implements ContainerFac
    *   The view mode.
    * @param array $third_party_settings
    *   Any third party settings.
-   * @param \Drupal\uo_bucket_text\Utility\UoBucketTextHelper
+   * @param \Drupal\uo_bucket_text\Utility\UoBucketTextHelper $helper
    *   Helper utility.
    */
   public function __construct(
@@ -59,9 +59,10 @@ class UoBucketTextDisplayFormatter extends FormatterBase implements ContainerFac
     $label,
     $view_mode,
     array $third_party_settings,
-    UoBucketTextHelper $helper) {
-      parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings);
-      $this->helper = $helper;
+    UoBucketTextHelper $helper,
+  ) {
+    parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings);
+    $this->helper = $helper;
   }
 
   /**
@@ -90,7 +91,7 @@ class UoBucketTextDisplayFormatter extends FormatterBase implements ContainerFac
       if ($item && !empty($item->value)) {
         $element[$delta] = [
           '#type' => 'processed_text',
-          '#text' => $this->helper->uo_bucket_text_replace_footnote($item->value),
+          '#text' => $this->helper->replaceFootnote($item->value),
           '#format' => ($item->format) ?? 'full_html',
           '#langcode' => $item->getLangcode(),
         ];

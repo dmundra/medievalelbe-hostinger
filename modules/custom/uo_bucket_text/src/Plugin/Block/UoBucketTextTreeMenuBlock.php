@@ -11,7 +11,6 @@ use Drupal\Core\Menu\MenuTreeParameters;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-
 /**
  * Provides a Tree Menu Block.
  *
@@ -36,7 +35,6 @@ class UoBucketTextTreeMenuBlock extends BlockBase implements ContainerFactoryPlu
    * @var \Drupal\Core\Menu\MenuActiveTrailInterface
    */
   protected $menuActiveTrail;
-
 
   /**
    * Constructs a new UoBucketTextTreeMenuBlock.
@@ -73,7 +71,7 @@ class UoBucketTextTreeMenuBlock extends BlockBase implements ContainerFactoryPlu
 
   /**
    * {@inheritdoc}
-   */  
+   */
   public function defaultConfiguration() {
     return [
       'uo_bucket_text_tree_menu_block_menu_name' => $this->t('main'),
@@ -127,7 +125,7 @@ class UoBucketTextTreeMenuBlock extends BlockBase implements ContainerFactoryPlu
     $defaults = $this->defaultConfiguration();
     $menu_name = $config['uo_bucket_text_tree_menu_block_menu_name'] ?? $defaults['uo_bucket_text_tree_menu_block_menu_name'];
     $init_level = $config['uo_bucket_text_tree_menu_block_menu_level'] ?? $defaults['uo_bucket_text_tree_menu_block_menu_level'];
-    
+
     $parameters = $this->menuTree->getCurrentRouteMenuTreeParameters($menu_name);
     $parameters->setMinDepth($init_level);
 
@@ -215,6 +213,7 @@ class UoBucketTextTreeMenuBlock extends BlockBase implements ContainerFactoryPlu
     $menu_id = $this->getDerivativeId();
     return array_filter($this->menuActiveTrail->getActiveTrailIds($menu_id));
   }
+
   /**
    * Gets the title of a given menu item ID.
    *
