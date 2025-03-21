@@ -7,8 +7,6 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
-      # Align with Drupal updates.
-      day: 'wednesday'
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
