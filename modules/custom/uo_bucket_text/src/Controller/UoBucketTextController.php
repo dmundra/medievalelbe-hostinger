@@ -163,9 +163,6 @@ class UoBucketTextController extends ControllerBase {
     $queue = EntitySubqueue::load($name);
     if (!empty($queue)) {
       $title = $queue->getTitle();
-      if ($name == 'raids') {
-        $title = 'Incursions';
-      }
       // Set up page title.
       $output['#title'] = $this->t($title);
       // Set up text main area.
@@ -188,17 +185,19 @@ class UoBucketTextController extends ControllerBase {
           '#value' => $this->t('@term', ['@term' => ($term) ? $term->get('name')->value : 'Not Found']),
           '#weight' => 0,
         ];
-        $output['bucket-main-content']['right-sidebar'] = [
-          '#type' => 'html_tag',
-          '#tag'  => 'div',
-          '#attributes' => [
-            'id' => 'sidebar-text'
-          ],
-          '#weight' => 1,
-          '#value' => $this->t('<h2 class="title">Analysis</h2><div>@termDescription</div>', [
-            '@termDescription' => ($term) ? $term->get('description')->value : ''
-          ]),
-        ];
+        if ($term && !empty($term->get('description')->value)) {
+          $output['bucket-main-content']['right-sidebar'] = [
+            '#type' => 'html_tag',
+            '#tag' => 'div',
+            '#attributes' => [
+              'id' => 'sidebar-text'
+            ],
+            '#weight' => 1,
+            '#value' => $this->t('<h2 class="title">Analysis</h2><div>@termDescription</div>', [
+              '@termDescription' => ($term) ? $term->get('description')->value : ''
+            ]),
+          ];
+        }
       }
 
       $buckets = $queue->get('items')->referencedEntities();

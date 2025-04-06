@@ -97,6 +97,9 @@ function uo_bucket_text_views_post_render(ViewExecutable $view, &$output, CacheP
   if ($view_name && $view_name == "list_of_labels" && $id == "block" && $args[0] == "raids") {
     $view->setTitle("Index");
   }
+  if ($view_name && $view_name == "list_of_labels" && $id == "block" && $args[0] == "vratislav_letters") {
+    $view->setTitle("Individual Letters");
+  }
 }
 
 /**

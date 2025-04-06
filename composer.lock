@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "07f34e13143d833298008651c1eda23c",
+    "content-hash": "0a95112e159e51a3ecfbd235247ef497",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1761,67 +1761,6 @@
                 "source": "https://cgit.drupalcode.org/pathauto",
                 "issues": "https://www.drupal.org/project/issues/pathauto",
                 "documentation": "https://www.drupal.org/docs/8/modules/pathauto"
-            }
-        },
-        {
-            "name": "drupal/tamper",
-            "version": "1.0.0-beta1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/tamper.git",
-                "reference": "8.x-1.0-beta1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/tamper-8.x-1.0-beta1.zip",
-                "reference": "8.x-1.0-beta1",
-                "shasum": "57cdf8e00396ea3716c74e3c6b92615b0ac64c62"
-            },
-            "require": {
-                "drupal/core": "^8.8 || ^9 || ^10 || ^11"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.0-beta1",
-                    "datestamp": "1740654928",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "ericgsmith",
-                    "homepage": "https://www.drupal.org/user/1649952"
-                },
-                {
-                    "name": "jamesdixon",
-                    "homepage": "https://www.drupal.org/user/762570"
-                },
-                {
-                    "name": "megachriz",
-                    "homepage": "https://www.drupal.org/user/654114"
-                },
-                {
-                    "name": "twistor",
-                    "homepage": "https://www.drupal.org/user/473738"
-                }
-            ],
-            "description": "Generic plugin to modify data.",
-            "homepage": "https://www.drupal.org/project/tamper",
-            "keywords": [
-                "Drupal",
-                "tamper"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/tamper",
-                "issues": "http://drupal.org/project/issues/tamper"
             }
         },
         {
@@ -6231,7 +6170,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "drupal/menu_breadcrumb": 15,
-        "drupal/tamper": 15,
         "drupal/views_tree": 5
     },
     "prefer-stable": true,
