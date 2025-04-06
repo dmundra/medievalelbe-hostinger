@@ -1,3 +1,8 @@
 services:
   uo_bucket_text.helper:
     class: Drupal\uo_bucket_text\Utility\UoBucketTextHelper
+  uo_bucket_text.breadcrumb_builder:
+    class: Drupal\uo_bucket_text\Utility\UoBucketBreadcrumbBuilder
+    arguments: ['@access_manager', '@current_user', '@plugin.manager.menu.link']
+    tags:
+      - { name: breadcrumb_builder, priority: 100 }
