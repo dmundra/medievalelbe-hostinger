@@ -11,9 +11,13 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Url;
 use Drupal\entityqueue\Entity\EntitySubqueue;
-use Drupal\menu_link_content\Plugin\Menu\MenuLinkContent;
 use Drupal\taxonomy\Entity\Term;
 
+/**
+ * Class UoBucketBreadcrumbBuilder renders breadcrumbs.
+ *
+ * @package Drupal\uo_bucket_text\Utility
+ */
 class UoBucketBreadcrumbBuilder implements BreadcrumbBuilderInterface {
 
   /**
@@ -45,7 +49,7 @@ class UoBucketBreadcrumbBuilder implements BreadcrumbBuilderInterface {
    * @param \Drupal\Core\Session\AccountInterface $current_user
    *   The current user object.
    * @param \Drupal\Core\Menu\MenuLinkManagerInterface $menu_link_manager
-   *    The menu link service.
+   *   The menu link service.
    */
   public function __construct(AccessManagerInterface $access_manager, AccountInterface $current_user, MenuLinkManagerInterface $menu_link_manager) {
     $this->accessManager = $access_manager;
@@ -80,12 +84,12 @@ class UoBucketBreadcrumbBuilder implements BreadcrumbBuilderInterface {
     $links = [];
 
     if (!empty($parameters['name']) && !empty($parameters['label'])) {
-      // Label
+      // Label.
       $term = Term::load($parameters['label']);
       $label_text = ($term) ? $term->get('name')->value : '';
       $links[] = Link::fromTextAndUrl($label_text, Url::fromRoute('<none>'));
 
-      // Text
+      // Text.
       $queue = EntitySubqueue::load($parameters['name']);
       if (!empty($queue)) {
         $menu_links = $this->menuLinkManager->loadLinksByRoute('uo_bucket_text.text', ['name' => $parameters['name']]);
