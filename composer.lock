@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4403f8b69162811805a257aef0c88c78",
+    "content-hash": "c509417f61367ce9b510e11f86f16363",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1654,16 +1654,16 @@
         },
         {
             "name": "drupal/core-vendor-hardening",
-            "version": "10.4.7",
+            "version": "11.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-vendor-hardening.git",
-                "reference": "82bb33f8da23130afa412e239c72ce70a8dba690"
+                "reference": "8fe818ea278f5ff612ad079bf134a6a02790f7a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-vendor-hardening/zipball/82bb33f8da23130afa412e239c72ce70a8dba690",
-                "reference": "82bb33f8da23130afa412e239c72ce70a8dba690",
+                "url": "https://api.github.com/repos/drupal/core-vendor-hardening/zipball/8fe818ea278f5ff612ad079bf134a6a02790f7a3",
+                "reference": "8fe818ea278f5ff612ad079bf134a6a02790f7a3",
                 "shasum": ""
             },
             "require": {
@@ -1689,9 +1689,9 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-vendor-hardening/tree/10.4.7"
+                "source": "https://github.com/drupal/core-vendor-hardening/tree/11.1.7"
             },
-            "time": "2024-11-11T20:22:36+00:00"
+            "time": "2024-11-11T18:39:05+00:00"
         },
         {
             "name": "drupal/ctools",
@@ -7522,7 +7522,7 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }
