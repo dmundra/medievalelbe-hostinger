@@ -1,4 +1,6 @@
 name: Code sniffer custom modules/themes.
+permissions:
+  contents: read
 
 on: [push]
 
@@ -8,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php_version: ['8.2']
+        php_version: ['8.3']
 
     steps:
       - name: Check out code.
