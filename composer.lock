@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f4a5e6185d592f826e26ca200d35a28d",
+    "content-hash": "992889b8f20d1ce4f7794d80e403d53b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1609,16 +1609,16 @@
         },
         {
             "name": "drupal/core-vendor-hardening",
-            "version": "10.5.1",
+            "version": "11.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-vendor-hardening.git",
-                "reference": "0ded64f65ef468e19823ed1917852fed8b2f0895"
+                "reference": "87bd2bf61f8c8a2e006bc2cbd8f88991342eb39a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-vendor-hardening/zipball/0ded64f65ef468e19823ed1917852fed8b2f0895",
-                "reference": "0ded64f65ef468e19823ed1917852fed8b2f0895",
+                "url": "https://api.github.com/repos/drupal/core-vendor-hardening/zipball/87bd2bf61f8c8a2e006bc2cbd8f88991342eb39a",
+                "reference": "87bd2bf61f8c8a2e006bc2cbd8f88991342eb39a",
                 "shasum": ""
             },
             "require": {
@@ -1644,9 +1644,9 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-vendor-hardening/tree/10.5.1"
+                "source": "https://github.com/drupal/core-vendor-hardening/tree/11.2.2"
             },
-            "time": "2024-11-11T20:19:58+00:00"
+            "time": "2025-03-03T14:03:21+00:00"
         },
         {
             "name": "drupal/ctools",
