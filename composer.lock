@@ -2445,17 +2445,17 @@
         },
         {
             "name": "drupal/views_tree",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/views_tree.git",
-                "reference": "3.0.0"
+                "reference": "3.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/views_tree-3.0.0.zip",
-                "reference": "3.0.0",
-                "shasum": "8f66d0ab5b6c29b9437ff7c1a6ec1586491039f7"
+                "url": "https://ftp.drupal.org/files/projects/views_tree-3.0.1.zip",
+                "reference": "3.0.1",
+                "shasum": "d55307d10d6a58d6e55078135060642c11be98ae"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11"
@@ -2463,8 +2463,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.0",
-                    "datestamp": "1747155976",
+                    "version": "3.0.1",
+                    "datestamp": "1760836025",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
