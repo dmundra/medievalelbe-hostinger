@@ -22,7 +22,7 @@
         "drupal/core-project-message": "^11.1",
         "drupal/core-recommended": "^11.1",
         "drupal/core-vendor-hardening": "^11.2",
-        "drupal/diff": "^1.1",
+        "drupal/diff": "^2.0",
         "drupal/entityqueue": "^1.7",
         "drupal/field_group": "^4.0",
         "drupal/field_permissions": "^1.3",
