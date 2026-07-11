@@ -43,3 +43,4 @@ sites/simpletest
 
 # Ignore contrib modules
 modules/contrib
+/autoload_runtime.php
